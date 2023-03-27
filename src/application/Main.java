@@ -29,6 +29,10 @@ public class Main {
         for(Map<String, String> spell : spells) {
             System.out.println(spell.get("name"));
             System.out.println(spell.get("desc"));
+            System.out.println(spell.get("range"));
+            System.out.println(spell.get("components"));
+            System.out.println(spell.get("casting_time"));
+            System.out.println(spell.get("level"));
             System.out.println(spell.get("dnd_class"));
             System.out.println();
 
