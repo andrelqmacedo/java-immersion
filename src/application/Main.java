@@ -12,8 +12,8 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        //Fazer uma conexão HTTP (GET) e buscar os filmes
-        String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json";
+        //Fazer uma conexão HTTP (GET) e buscar as spells
+        String url = "https://api.open5e.com/spells/?format=json";
         URI endereco = URI.create(url);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
@@ -23,13 +23,13 @@ public class Main {
 
         //Extrair/parsear os dados que interessam (Nome, Imagem, Poder)
         JsonParser parser = new JsonParser();
-        List<Map<String, String>> listaDeFilmes = parser.parse(body);
+        List<Map<String, String>> spells = parser.parse(body);
 
         //Exibir e manipular os dados
-        for(Map<String, String> filmes : listaDeFilmes) {
-            System.out.println(filmes.get("title"));
-            System.out.println(filmes.get("image"));
-            System.out.println(filmes.get("imDbRating"));
+        for(Map<String, String> spell : spells) {
+            System.out.println(spell.get("name"));
+            System.out.println(spell.get("desc"));
+            System.out.println(spell.get("dnd_class"));
             System.out.println();
 
         }
